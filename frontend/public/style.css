@@ -1,0 +1,398 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+* {
+    box-sizing: border-box;
+}
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Typography */
+
+html, body, input, button {
+    font-family: Spartan;
+}
+html, body {
+    font-size: 10px;
+}
+
+h1 {
+    font-size: 3.2rem;
+    font-weight: 700;
+    line-height: 3.6rem;
+    letter-spacing: -1px;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 2.2rem;
+    letter-spacing: -0.625px;
+}
+
+h3 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 2.4rem;
+    letter-spacing: -0.800000011920929px;
+}
+
+h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.5rem;
+    letter-spacing: -0.25px;
+}
+
+.fontBg {
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.5rem;
+    letter-spacing: -0.25px;
+}
+.fontBgBold {
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.5rem;
+    letter-spacing: -0.25px;
+}
+
+.fontSm {
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 1.8rem;
+    letter-spacing: -0.2291666716337204px;
+}
+
+/* Colors */
+
+:root {
+    --primary-color: #7C5DFA;
+    --primary-hovered-color: #9277FF;
+    --secondary-color: #EC5757;
+    --secondary-hovered-color: #FF9797;
+    --hash-color: #7E88C3;
+
+    --info-background-color: #F3FDFA;
+    --info-color: #33D69F;
+
+    --warning-background-color: #FFFFFE;
+    --warning-color: #FF8F00;
+
+    --danger-color: #EC5757;
+
+    --icons-color: #7E88C3;
+}
+
+.lightTheme {
+    --background-color: #F8F8FB;
+    --amount-background-color: #373B53;
+
+    --primary-text-color: #0C0E16;
+    --secondary-text-color: #FFFFFF;
+    --ternary-text-color: #7E88C3;  /* form labels; Due data on summary banner; themeToggler icon*/
+    --quartary-text-color:  #858BB2; /*Name on summary banner*/
+    
+    --banner-background-color: #FFFFFF;
+    --banner-text-color: #0C0E16;
+
+    --add-item-button-background-color: #F9FAFE;
+    --add-item-button-text-color: #7E88C3;
+    --add-item-button-hover-background-color: #DFE3FA;
+    --add-item-button-hover-text-color: #7E88C3;
+
+    --edit-button-background-color: #F9FAFE;
+    --edit-button-hover-background-coLor: #DFE3FA;
+    --edit-button-text-color: #7E88C3;
+    --edit-button-hover-text-color: #7E88C3;
+
+    --save-draft-button-background-color: #373B53;
+    --save-draft-button-text-color: #888EB0;
+    --save-draft-button-hover-background-color: #0C0E16;
+    --save-draft-button-hover-text-color: #888EB0;
+    --input-outline-default-color: #DFE3FA;
+    --input-outline-ative-color: #7C5DFA;
+}
+.darkTheme {
+    --background-color: #141625;
+    --amount-background-color: #0C0E16;
+
+    --primary-text-color: #FFFFFF;
+    --secondary-text-color: #FFFFFF;
+    --ternary-text-color: #DFE3FA;  /* form labels; Due data on summary banner; themeToggler icon */
+    --quartary-text-color:  #FFFFFF;
+
+    --banner-background-color: #1E2139;
+    --banner-text-color: #FFFFFF;
+
+    --add-item-button-background-color: #252945;
+    --add-item-button-text-color: #DFE3FA;
+    --add-item-button-hover-background-color: #DFE3FA;
+    --add-item-button-hover-text-color: #7E88C3;
+
+    --edit-button-background-color: #252945;
+    --edit-button-hover-background-color: #DFE3FA;
+    --edit-button-text-color: #DFE3FA;
+    --edit-button-hover-text-color: #7E88C3;
+
+    --save-draft-button-background-color: #373B53;
+    --save-draft-button-text-color: #DFE3FA;
+    --save-draft-button-hover-background-color: #252945;
+    --save-draft-button-hover-text-color: #DFE3FA;
+
+    --input-outline-default-color: #252945;
+    --input-outline-ative-color: #252945;
+}
+
+
+/* Buttons */
+
+button {
+    height: 4.8rem;
+    border-radius: 1.4rem;
+    color: var(--secondary-text-color);
+}
+
+.btnPrimary {
+    background-color: var(--primary-color);
+}
+.btnPrimary:hover {
+    background-color: var(--primary-hovered-color);
+}
+
+.secondaryButton {
+    background-color: var(--secondary-color);
+}
+.secondaryButton:hover {
+    background-color: var(--secondary-hovered-color);
+}
+
+.edditButton {
+    background-color: var(--edit-button-background-color);
+    color: var(--edit-button-text-color)
+}
+.edditButton:hover {
+    background-color: var(--edit-button-hover-background-color);
+    color: var(--edit-button-hover-text-color);
+}
+
+.saveDraftButton {
+    background-color: var(--save-draft-button-background-color);
+    color: var(--save-draft-button-text-color)
+}
+.saveDraftButton:hover {
+    background-color: var(--save-draft-button-hover-background-color);
+    color: var(--save-draft-button-hover-text-color);
+}
+
+.addItemButton {
+    background-color: var(--add-item-button-background-color);
+    color: var(--add-item-button-text-color)
+}
+.addItemButton:hover {
+    background-color: var(--add-item-button-hover-background-color);
+    color: var(--add-item-button-hover-text-color);
+}
+
+/* Form Elements */
+
+/* Date.disabled: opacity: 0.5 */
+
+/* Date Picker */
+
+.calendar {
+    width: 100%;
+    max-width: 24rem;
+}
+
+
+    
+/* 
+
+.react-datepicker-wrapper {
+    width: 100%;
+    max-width: 24rem;
+    display: flex;
+    align-items: center;
+    outline: none;
+    border:none;
+    box-shadow: none;
+}
+*/
+.react-datepicker__input-container {
+    display: flex !important;
+    align-items: center;
+    background-color: var(--banner-background-color);
+    border-radius: 8px;
+}
+.react-datepicker__input-container:after {
+    transform: translateX(-1.6rem);
+    position: absolute;
+    right: 0;
+    font-family: "Material Icons";
+    font-size: 1.6rem;
+    content: "\e935";
+    width: 1.6rem;
+    height: 1.6rem;
+    color: var(--icons-color);
+} 
+
+.datepicker-input {
+    height: 4.8rem;
+    width: 100%;
+
+    border: inset 1px #252945;
+    border-radius: 0.8rem;
+
+    padding-left: 2rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.5rem;
+    letter-spacing: -0.25px;
+
+    cursor: pointer;
+
+    background-color: var(--banner-background-color);
+    color: var(--banner-text-color);
+}
+
+.datepicker-input:focus {
+    border: inset 1px var(--input-outline-ative-color) !important;
+    outline:none;
+}
+
+.datepicker-input:disabled {
+    opacity: 0.5;
+}
+
+.react-datepicker-popper, 
+.react-datepicker-popper > *, 
+.react-datepicker,
+.react-datepicker__month-container {
+    width: 100%;
+    max-width: 24rem;
+}
+.react-datepicker__triangle {
+    display: none;
+}
+.react-datepicker__navigation {
+    top: 15px !important;
+}
+
+.react-datepicker {
+    border-radius: 0.8rem !important;
+    height: 24rem !important;
+    align-items: space-between !important;
+    padding: 0 1.6rem !important;
+    border: none !important;
+    box-shadow: 0px 10px 20px rgba(72, 84, 159, 0.25);
+    background-color: var(--banner-background-color) !important;
+    color: var(--banner-text-color) !important;
+}
+
+.react-datepicker__month-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    /* padding: 0 1.8rem; */
+}
+
+.react-datepicker__month {
+height: 80%;
+max-height: 14rem;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+}
+
+.react-datepicker__header {
+    background-color: unset !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border:none !important;
+    color: var(--banner-text-color) !important;
+}
+.react-datepicker__current-month, .react-datepicker__day {
+    color: var(--banner-text-color) !important;
+}
+
+.react-datepicker__navigation-icon::before {
+    border-color: var(--primary-color) !important;
+}
+
+.react-datepicker__current-month {
+    font-size: 1.5rem !important;
+}
+.react-datepicker__day-name {
+    display: none !important;
+}
+.react-datepicker__day {
+    width: calc(100% / 7) !important;
+    margin: 0 !important;
+    font-size: 1.5rem;
+    text-align: center;
+    height: 1.5rem;
+    font-weight: 700;
+}
+
+.react-datepicker__day:hover {
+    background-color: unset !important;
+} 
+
+.react-datepicker__day--selected {
+    background-color: unset !important;
+    color: var(--primary-color) !important;
+}
+
+.react-datepicker__day--outside-month {
+    opacity: 0.2;
+}
