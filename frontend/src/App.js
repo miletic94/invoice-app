@@ -1,28 +1,23 @@
-import { useState } from "react"
-import Calendar from "./components/Calendar"
+import { useState } from "react";
+import Selector from "./components/Selector";
 
 function App() {
-  const [theme, setTheme] = useState("darkTheme") /* set it from prefers-color-scheme */
-  const toggleTheme = () => {
-    if(theme === "darkTheme") {
-      setTheme("lightTheme") 
-      return
-    }
-    if(theme === "lightTheme") {
-      setTheme("darkTheme")
-      return
-    }
-  }
+  const [theme, setTheme] = useState("darkTheme")
   return (
-
-
     <div className={`App ${theme}`}>
-      <button onClick={toggleTheme}>
+      <button onClick={() => setTheme(() => {
+        if(theme === "darkTheme") {
+          return "lightTheme"
+        }
+        if(theme === "lightTheme") {
+          return "darkTheme"
+        }
+      })}>
         Toggle Theme
-      </button>      
-     
-      <Calendar />
-      <Calendar />
+      </button>
+
+      <Selector />
+
     </div>
 
   );
