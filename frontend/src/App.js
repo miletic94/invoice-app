@@ -1,25 +1,14 @@
-import { useState } from "react";
-import Selector from "./components/Selector";
+import Nav from "./components/Nav";
+import SummaryBanner from "./components/SummaryBanner";
+
+// TODO: Add horizontal lines in MenuList
 
 function App() {
-  const [theme, setTheme] = useState("darkTheme")
   return (
-    <div className={`App ${theme}`}>
-      <button onClick={() => setTheme(() => {
-        if(theme === "darkTheme") {
-          return "lightTheme"
-        }
-        if(theme === "lightTheme") {
-          return "darkTheme"
-        }
-      })}>
-        Toggle Theme
-      </button>
-
-      <Selector />
-
+    <div className="App darkTheme">
+      <Nav />
+      <SummaryBanner />
     </div>
-
   );
 }
 

@@ -52,6 +52,131 @@ table {
 	border-spacing: 0;
 }
 
+.App {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Nav */
+
+nav {
+    display: flex;
+    width: 100vw;
+    height: 10.3rem;
+    background-color: var(--navbar-color);
+    justify-content: space-between;
+    border-radius: 0;
+}
+.navGroup {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    margin-right: 2.4rem;
+}
+.logo {
+    width: 100%;
+    height: 100%;
+    max-width: 10.3rem;
+    max-height: 10.3rem;
+}
+
+.themeToggler {
+    width: fit-content;
+    background-color: unset;
+    border:none;
+    outline:none;
+}
+
+.navbarDivider {
+    background-color: #494E6E;
+    opacity: 0.2;
+    margin: 0;
+    height: 100%;
+    margin: 0 3.2rem;
+}
+
+.avatar {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+}
+
+/* SummaryBanner */
+.summaryBanner {
+    position:relative;
+    display: grid;
+    grid-template-areas: "id        clientName"
+                         "dueDate   infoBadge"
+                         "totalCost infoBadge";
+    justify-content: space-around;
+    align-items:center;
+    padding: 2.4rem 0;
+    width: 100%;
+    height: 13.4rem;
+    max-width: 50rem;                
+    background-color: var(--banner-background-color);
+    color: var(--banner-text-color);
+    box-shadow: 0px 10px 10px -10px rgba(72, 84, 159, 0.1);
+}
+.id {
+    grid-area: id;
+}
+.dueDate {
+    grid-area: dueDate;
+}
+.clientName {
+    grid-area: clientName;
+}
+.totalCost {
+    grid-area: totalCost
+}
+.infoBadge {
+    grid-area: infoBadge;
+    height: 4rem;
+    width: 100%;
+    max-width: 10.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.arrowRightSummaryBanner {
+    display:none;
+}
+.successInfoBadge {
+    background-color: var(--success-background-color);
+    color: var(--success-color);
+}
+.warningInfoBadge {
+    background-color: var(--warning-background-color);
+    color: var(--warning-color);
+}
+.darkInfoBadge {
+    background-color: var(--dark-background-color);
+    color: var(--dark-color);
+}
+.hashTag {
+    color: var(--hash-color);
+}
+.dueDate {
+    color: var(--ternary-text-color);
+}
+.clientName {
+    color: var(--quartary-text-color);
+}
+.circleXsm {
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 50%;
+}
+.successCircle {
+    background-color: var(--success-color);
+}
+.warningCircle {
+    background-color: var(--warning-color);
+}
+.darkCircle {
+    background-color: var(--dark-color);
+}
 /* Typography */
 
 html, body, input, button {
@@ -89,7 +214,7 @@ h4 {
     letter-spacing: -0.25px;
 }
 
-.fontBg {
+*.fontBg {
     font-size: 1.2rem;
     font-style: normal;
     font-weight: 500;
@@ -119,11 +244,10 @@ h4 {
     --secondary-color: #EC5757;
     --secondary-hovered-color: #FF9797;
     --hash-color: #7E88C3;
+    --navbar-color: #373B53;
 
-    --info-background-color: #F3FDFA;
-    --info-color: #33D69F;
+    --success-color: #33D69F;
 
-    --warning-background-color: #FFFFFE;
     --warning-color: #FF8F00;
 
     --danger-color: #EC5757;
@@ -142,6 +266,11 @@ h4 {
     
     --banner-background-color: #FFFFFF;
     --banner-text-color: #0C0E16;
+
+    --success-background-color: #F3FDFA;
+    --warning-background-color: #FFF1F1;
+    --dark-color: #373B53;
+    --dark-background-color: #373B5320;
 
     --add-item-button-background-color: #F9FAFE;
     --add-item-button-text-color: #7E88C3;
@@ -172,6 +301,11 @@ h4 {
 
     --banner-background-color: #1E2139;
     --banner-text-color: #FFFFFF;
+
+    --success-background-color: #33D69F20;
+    --warning-background-color: #FF8F0020;
+    --dark-color: #DFE3FA;
+    --dark-background-color: #DFE3FA20;
 
     --add-item-button-background-color: #252945;
     --add-item-button-text-color: #DFE3FA;
@@ -396,4 +530,88 @@ justify-content: space-between;
 
 .react-datepicker__day--outside-month {
     opacity: 0.2;
+}
+
+/* General */
+
+.dFlex {
+    display: flex;
+}
+.grow5 {
+    flex-grow: 0.5
+}
+.spaceBetween {
+    justify-content: space-between;
+}
+
+.mr-08 {
+    margin-right: 0.8rem;
+}
+.mr-4 {
+    margin-right: 4rem;
+}
+.mr-7 {
+    margin-right: clamp(3.5rem, 5vw, 7rem)
+}
+
+
+/* Media Tablet */
+@media screen and (min-width: 800px) {
+    .App {
+        flex-direction: row;
+        min-width: 100vw;
+        min-height: 100vh;
+        background-color: var(--background-color);
+    }
+    nav {
+        width: 10.3rem;
+        height: 100vh;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: 0 2rem 2rem 0;
+    }
+    .navGroup {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 11.7rem;
+        align-items: center;
+        margin-bottom: 2.4rem;
+        margin-right: 0;
+    }
+    .navbarDivider {
+        width: 11.7rem;
+        height: 1px;
+        margin-bottom: 2.4rem;
+        
+    }
+}
+
+/* Media Moblie */
+
+@media screen and (min-width: 650px) {
+    .summaryBanner {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        max-width: 73rem;
+        height: 7.2rem;
+        padding: 0 2.4rem 0 3.2rem;
+    }
+    .id, .dueDate {
+        margin-right: clamp(1.5rem, 4.5vw, 3.5rem);
+    }
+    .clientName {
+        margin-right: clamp(2.5rem, 5.2vw, 7rem);
+    }
+    .totalCost {
+        margin-right: clamp(2.4rem, 4.8vw, 4rem);
+    }
+    .infoBadge {
+        margin-right: clamp(1rem, 2.5vw, 2rem);
+    }
+    .arrowRightSummaryBanner {
+        display: block;
+    }
 }
