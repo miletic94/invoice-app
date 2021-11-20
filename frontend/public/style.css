@@ -101,7 +101,22 @@ nav {
     border-radius: 50%;
 }
 
+.summaryList {
+    width: 100%;
+    display: grid;
+    padding: clamp(2rem, 2.5vw, 4.8rem);
+    grid-template-columns: auto;
+    align-items: center;
+}
+
 /* SummaryBanner */
+.summaryBannerWrapper {
+    display: grid;
+    grid-template-columns: min(100%, 80rem);
+    justify-content: center;
+    align-items: center;
+    margin: 0.8rem;
+}
 .summaryBanner {
     position:relative;
     display: grid;
@@ -113,10 +128,15 @@ nav {
     padding: 2.4rem 0;
     width: 100%;
     height: 13.4rem;
-    max-width: 50rem;                
+    max-width: 65rem;
+    border-radius: 8px;                
     background-color: var(--banner-background-color);
     color: var(--banner-text-color);
     box-shadow: 0px 10px 10px -10px rgba(72, 84, 159, 0.1);
+    cursor:pointer; 
+}
+.empty {
+    margin: auto;
 }
 .id {
     grid-area: id;
@@ -128,32 +148,55 @@ nav {
     grid-area: clientName;
 }
 .totalCost {
-    grid-area: totalCost
+    grid-area: totalCost;
 }
 .infoBadge {
     grid-area: infoBadge;
-    height: 4rem;
-    width: 100%;
-    max-width: 10.3rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    min-width: 10.3rem;
 }
 .arrowRightSummaryBanner {
     display:none;
 }
-.successInfoBadge {
+
+/*InfoBadge*/
+.infoBadge {
+    height: 4rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.infoBadge.success {
     background-color: var(--success-background-color);
     color: var(--success-color);
 }
-.warningInfoBadge {
+.infoBadge.warning {
     background-color: var(--warning-background-color);
     color: var(--warning-color);
 }
-.darkInfoBadge {
+.infoBadge.dark {
     background-color: var(--dark-background-color);
     color: var(--dark-color);
 }
+
+.infoBadgeSymbol {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.infoBadgeSymbol.success {
+    background-color: var(--success-color);
+}
+.infoBadgeSymbol.warning {
+    background-color: var(--warning-color);
+}
+.infoBadgeSymbol.dark {
+    background-color: var(--dark-color);
+}
+
+
 .hashTag {
     color: var(--hash-color);
 }
@@ -163,20 +206,8 @@ nav {
 .clientName {
     color: var(--quartary-text-color);
 }
-.circleXsm {
-    width: 0.8rem;
-    height: 0.8rem;
-    border-radius: 50%;
-}
-.successCircle {
-    background-color: var(--success-color);
-}
-.warningCircle {
-    background-color: var(--warning-color);
-}
-.darkCircle {
-    background-color: var(--dark-color);
-}
+
+
 /* Typography */
 
 html, body, input, button {
@@ -593,25 +624,33 @@ justify-content: space-between;
 @media screen and (min-width: 650px) {
     .summaryBanner {
         display: flex;
+        justify-content: space-between;
         align-items: center;
         width: 100%;
-        max-width: 73rem;
+        max-width: 75rem;
         height: 7.2rem;
         padding: 0 2.4rem 0 3.2rem;
     }
-    .id, .dueDate {
-        margin-right: clamp(1.5rem, 4.5vw, 3.5rem);
+    .summaryBanner > * {
+        flex-basis: 0;
+        flex: 1 1 0px;
+    }    
+    .id {
+        margin-right: 1rem;
     }
-    .clientName {
-        margin-right: clamp(2.5rem, 5.2vw, 7rem);
+    .dueDate {
+        margin-right: clamp(1.5rem, 4.5vw, 3.5rem);
     }
     .totalCost {
         margin-right: clamp(2.4rem, 4.8vw, 4rem);
+        text-align: right;
     }
     .infoBadge {
-        margin-right: clamp(1rem, 2.5vw, 2rem);
+        margin-right: 4.8rem;
     }
     .arrowRightSummaryBanner {
         display: block;
-    }
+        position: absolute;
+        right: 32px;
+    } 
 }
