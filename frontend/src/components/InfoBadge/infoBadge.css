@@ -1,0 +1,38 @@
+/*InfoBadge*/
+.infoBadge {
+    height: 4rem;
+    width: 100%;
+    min-width: 10.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.infoBadge.success {
+    background-color: var(--success-background-color);
+    color: var(--success-color);
+}
+.infoBadge.warning {
+    background-color: var(--warning-background-color);
+    color: var(--warning-color);
+}
+.infoBadge.dark {
+    background-color: var(--dark-background-color);
+    color: var(--dark-color);
+}
+
+.infoBadgeSymbol {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.infoBadgeSymbol.success {
+    background-color: var(--success-color);
+}
+.infoBadgeSymbol.warning {
+    background-color: var(--warning-color);
+}
+.infoBadgeSymbol.dark {
+    background-color: var(--dark-color);
+}

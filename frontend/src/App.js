@@ -1,12 +1,12 @@
 // TODO: Add horizontal lines in MenuList
 
-import SummarList from "./components/SummarList";
 import Nav from "./components/Nav"
+import Bill from "./components/Bill";
 function App() {
   return (
-    <div className="App darkTheme">
+    <div className="App lightTheme">  
       <Nav />
-      <SummarList />
+      <Bill />
     </div>
   );
 }

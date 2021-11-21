@@ -1,18 +1,7 @@
 import React from 'react'
+import InfoBadge from './InfoBadge/InfoBadge'
 
 export default function SummaryBanner(props) {
-    const handleInfoStatus = (infoStatus) => {
-        switch(infoStatus) {
-            case "paid":
-                return "success"
-            case "pending":
-                return "warning"
-            case "draft":
-                return "dark"
-            default:
-                return "dark"
-        }
-    }
     const handleDateString = (dateString) => {
         const options = {day:"numeric", month:"short", year:"numeric"}
         const date = new Date(dateString)
@@ -37,10 +26,7 @@ export default function SummaryBanner(props) {
                     <span className="currency">£</span> 
                     <span className="amount">{props.total.toLocaleString()}</span>
                 </h3>
-                <div className={`infoBadge ${handleInfoStatus(props.status)} fontBg`}>
-                    <span className={`infoBadgeSymbol ${handleInfoStatus(props.status)} mr-08`}></span>
-                    <span className="status">{props.status}</span>
-                </div>
+                <InfoBadge status = {props.status}/>
                 <svg className="arrowRightSummaryBanner" width="7" height="10" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4 4-4 4" stroke="#7C5DFA" stroke-width="2" fill="none" fill-rule="evenodd"/></svg>
             </div>
         </div>
