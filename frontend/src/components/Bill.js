@@ -97,90 +97,95 @@ export default function Bill() {
                     </div>
                 </div>
                 <table className="billTable mobile">
-                    <tr>
-                        <td>
-                            <div className="itemName fontBgBold">Banner Design</div>
-                            <div className="fontBgBold qtyTimesPrice">
-                                <span className="qty">1 </span>
-                                <span>x </span>
-                                <span className="currency">£ </span>
+                    
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div className="itemName fontBgBold">Banner Design</div>
+                                <div className="fontBgBold qtyTimesPrice">
+                                    <span className="qty">1 </span>
+                                    <span>x </span>
+                                    <span className="currency">£ </span>
+                                    <span className="amount">156.00</span>
+                                </div>
+                            </td>
+                            <td className="subtotal fontBgBold">
+                                <span className="currency">£</span>
                                 <span className="amount">156.00</span>
-                            </div>
-                        </td>
-                        <td className="subtotal fontBgBold">
-                            <span className="currency">£</span>
-                            <span className="amount">156.00</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div className="itemName fontBgBold">Banner Design</div>
-                            <div className="fontBgBold qtyTimesPrice">
-                                <span className="qty">1 </span>
-                                <span>x </span>
-                                <span className="currency">£ </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div className="itemName fontBgBold">Banner Design</div>
+                                <div className="fontBgBold qtyTimesPrice">
+                                    <span className="qty">1 </span>
+                                    <span>x </span>
+                                    <span className="currency">£ </span>
+                                    <span className="amount">156.00</span>
+                                </div>
+                            </td>
+                            <td className="subtotal fontBgBold">
+                                <span className="currency">£</span>
                                 <span className="amount">156.00</span>
-                            </div>
-                        </td>
-                        <td className="subtotal fontBgBold">
-                            <span className="currency">£</span>
-                            <span className="amount">156.00</span>
-                        </td>
-                    </tr>
-                    <tr className="grandTotal fontSm">
-                        <td>
-                            Amount Due
-                        </td>
-                        <td className="price">
-                            <span className="currency">£ </span>
-                            <span className="amount">556.00</span>
-                        </td>
-                    </tr>
+                            </td>
+                        </tr>
+                        <tr className="grandTotal fontSm">
+                            <td>
+                                Amount Due
+                            </td>
+                            <td className="price">
+                                <span className="currency">£ </span>
+                                <span className="amount">556.00</span>
+                            </td>
+                        </tr>
+                    </tbody>
                 </table>
                 <table className="billTable desktop">
-                    <tr>
-                        <th className="itemNameColumn fontSm">
-                            Item Name
-                        </th>
-                        <th className="qtyColumn fontSm">
-                            QTY.
-                        </th>
-                        <th className="priceColumn fontSm">
-                            Price
-                        </th>
-                        <th className="totalColumn fontSm">
-                            Total
-                        </th>
-                    </tr>
-                    <tr>
-                        <td className="itemNameColumn fontBgBold">
-                            Banner Design
-                        </td>
-                        <td className="qtyColumn fontBgBold">
-                            1
-                        </td>
-                        <td className="priceColumn fontBgBold">
-                            <span>£ </span>
-                            <span>156.00</span>
-                        </td>
-                        <td className="totalColumn fontBgBold">
-                            <span>
-                                £
-                            </span>
-                            <span>
-                                156.00
-                            </span>
-                        </td>
-                    </tr>
-                    <tr className="grandTotal">
-                        <td colSpan="2 fontSm">
-                            Amount Due
-                        </td>
-                        <td colSpan="2" className="price">
-                            <span className="currency">£ </span>
-                            <span className="amount">556.00</span>
-                        </td>
-                    </tr>
+                    <tbody>
+                        <tr>
+                            <th className="itemNameColumn fontSm">
+                                Item Name
+                            </th>
+                            <th className="qtyColumn fontSm">
+                                QTY.
+                            </th>
+                            <th className="priceColumn fontSm">
+                                Price
+                            </th>
+                            <th className="totalColumn fontSm">
+                                Total
+                            </th>
+                        </tr>
+                        <tr>
+                            <td className="itemNameColumn fontBgBold">
+                                Banner Design
+                            </td>
+                            <td className="qtyColumn fontBgBold">
+                                1
+                            </td>
+                            <td className="priceColumn fontBgBold">
+                                <span>£ </span>
+                                <span>156.00</span>
+                            </td>
+                            <td className="totalColumn fontBgBold">
+                                <span>
+                                    £
+                                </span>
+                                <span>
+                                    156.00
+                                </span>
+                            </td>
+                        </tr>
+                        <tr className="grandTotal">
+                            <td colSpan="2 fontSm">
+                                Amount Due
+                            </td>
+                            <td colSpan="2" className="price">
+                                <span className="currency">£ </span>
+                                <span className="amount">556.00</span>
+                            </td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
         </div>
