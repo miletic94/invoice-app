@@ -1,0 +1,853 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+* {
+    box-sizing: border-box;
+}
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    min-width: 100vw;
+    min-height: 100vh;
+    background-color: var(--background-color);
+}
+
+/* Nav */
+
+nav {
+    display: flex;
+    width: 100vw;
+    height: 10.3rem;
+    background-color: var(--navbar-color);
+    justify-content: space-between;
+    border-radius: 0;
+}
+.navGroup {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    margin-right: 2.4rem;
+}
+.logo {
+    width: 100%;
+    height: 100%;
+    max-width: 10.3rem;
+    max-height: 10.3rem;
+}
+
+.themeToggler {
+    width: fit-content;
+    background-color: unset;
+    border:none;
+    outline:none;
+}
+
+.navbarDivider {
+    background-color: #494E6E;
+    opacity: 0.2;
+    margin: 0;
+    height: 100%;
+    margin: 0 3.2rem;
+}
+
+.avatar {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+}
+
+.summaryList {
+    width: 100%;
+    display: grid;
+    padding: clamp(2rem, 2.5vw, 4.8rem);
+    grid-template-columns: auto;
+    align-items: center;
+}
+
+/* SummaryBanner */
+.summaryBannerWrapper {
+    display: grid;
+    grid-template-columns: min(100%, 80rem);
+    justify-content: center;
+    align-items: center;
+    margin: 0.8rem;
+}
+.summaryBanner {
+    position:relative;
+    display: grid;
+    grid-template-areas: "id        clientName"
+                         "dueDate   infoBadge"
+                         "totalCost infoBadge";
+    justify-content: space-around;
+    align-items:center;
+    padding: 2.4rem 0;
+    width: 100%;
+    height: 13.4rem;
+    max-width: 65rem;
+    border-radius: 8px;                
+    background-color: var(--banner-background-color);
+    color: var(--banner-text-color);
+    box-shadow: 0px 10px 10px -10px rgba(72, 84, 159, 0.1);
+    cursor:pointer; 
+}
+.empty {
+    margin: auto;
+}
+.summaryBanner .id {
+    grid-area: id;
+}
+.summaryBanner .dueDate {
+    grid-area: dueDate;
+}
+.summaryBanner .clientName {
+    grid-area: clientName;
+}
+.totalCost {
+    grid-area: totalCost;
+}
+.summaryBanner .infoBadge {
+    grid-area: infoBadge;
+}
+.arrowRightSummaryBanner {
+    display:none;
+}
+
+.hashTag {
+    color: var(--hash-color);
+}
+.dueDate {
+    color: var(--ternary-text-color);
+}
+.summaryBanner .clientName {
+    color: var(--quartary-text-color);
+}
+
+/* Bill */
+
+.bill {
+    width: 100%;
+    max-width: 73rem;
+    margin: auto;
+}
+.billContainers {
+    background-color: var(--banner-background-color);
+    padding: 3.2rem clamp(2.4rem, 4.7vw, 4.8rem);
+    margin: 2.4rem clamp(1rem, 6vw, 4rem);
+    border-radius: 8px;
+    box-shadow: 0px 10px 10px -10px rgba(72, 84, 159, 0.100397);
+}
+.billStatus {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+.bill .infoBadge {
+    max-width: 10.3rem;
+}
+.billControls {
+    position: fixed;
+    width: 100%;
+    padding: 1.2rem 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    background-color: var(--banner-background-color);
+}
+@media screen and (min-width: 650px) {
+    .billControls {
+        position: relative;
+        padding: 0;
+        width: unset;
+    }
+    .billStatus {
+        width: unset;
+    }
+}
+.bill .infoBadge {
+    margin-left: 1.6rem;
+}
+.bill button {
+    margin: 0 0.4rem;
+}
+
+.billHeader {
+    display: flex;
+    flex-direction: column;
+    margin: 3.2rem 0 2.1rem 0;
+}
+.billHeader .id {
+    line-height: 2.4rem;
+    margin-bottom: 0.8rem;
+}
+.billHeader .description,
+.billHeader p,
+.createAt > p,
+.clientName > p,
+.paymentDue > p,
+.clientEmail > p,
+.clientAddress > p {
+    color: var(--ternary-text-color);
+}
+
+
+.billInfo {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    align-items: end;
+    margin-bottom: 4.8rem;
+}
+.billInfo .paymentDue, .billInfo .clientAddress {
+    margin-bottom: 1.5rem;
+}
+
+.senderAddress p, .clientAddress p {
+    line-height: 1.8rem;
+}
+.senderAddress {
+    margin-top: 3rem;
+}
+.clientAddress {
+    margin-top: 1.2rem;
+}
+.billTable {
+    margin: auto;
+    background-color: var(--bill-table-background-color);
+    border-radius: 8px;
+    table-layout: auto;
+    width: 100%;
+}
+.billTable.mobile {
+    display: table;
+    width: 100%;
+}
+.billTable.desktop {
+    display: none;
+}
+.billTable tr td:last-child {
+    text-align: right;
+    padding-right: clamp(2.4rem, 6.4vw, 3.2rem);
+}
+.billTable tr td:first-child {
+    padding-left: clamp(2.4rem, 6.4vw, 3.2rem);
+}
+.billTable tr th:first-child {
+    padding-left: clamp(2.4rem, 6.4vw, 3.2rem);
+}
+.billTable tr th:last-child {
+    padding-right: clamp(2.4rem, 6.4vw, 3.2rem);
+}
+.billTable tr:first-child {
+    padding: 2.4rem 0 1.2rem 0;
+}
+.billTable tr {
+    padding: 1.2rem;
+}
+.billTable td {
+    vertical-align: middle;
+    padding: 2.4rem 0;
+    border-collapse: collapse;
+}
+.billTable .itemName {
+    margin-bottom: 0.8rem;
+    color: var(--primary-text-color);
+}
+.qtyTimesPrice {
+    color: var(--bill-table-text-color);
+}
+.billTable .grandTotal {
+    height: 8rem;
+    background-color: var(--grand-total-background-color);
+    color: #FFFFFF;
+}
+.billTable .grandTotal .price  {
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 3.2rem;
+    letter-spacing: -0.5px;
+}
+@media screen and (min-width: 650px) {
+    .billInfo {
+        grid-template-columns: repeat(3, auto);
+    }
+    .billInfo .paymentDue, .billInfo .clientAddress {
+        margin-bottom: 0;
+    }
+    .billInfo > *:not(:nth-child(4)) > p {
+        margin-bottom: 1.2rem;
+    }
+    .billInfo .clientAddress {
+        order: 5;
+    }
+    .billTable.mobile {
+        display: none;
+    }
+    .billTable.desktop {
+        display: table;
+    }
+    .billTable th {
+        padding: 2.4rem 0 1.2rem 0;
+    }
+    .billTable tr {
+        padding: 1.2rem 0;
+    }
+    .billTable tr:last-child {
+        padding: 1.2rem 0 2.4rem 0;
+    }
+    .billTable th, .qtyColumn, .priceColumn {
+        color: var(--ternary-text-color);
+    }
+    .itemNameColumn {
+        text-align: left;
+    }
+    .qtyColumn {
+        text-align: center;
+    }
+    .priceColumn, .totalColumn {
+        text-align: right;
+    }
+
+}
+
+/* Typography */
+
+html, body, input, button {
+    font-family: Spartan;
+}
+html, body {
+    font-size: 10px;
+}
+
+h1 {
+    font-size: 3.2rem;
+    font-weight: 700;
+    line-height: 3.6rem;
+    letter-spacing: -1px;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 2.2rem;
+    letter-spacing: -0.625px;
+}
+
+h3 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 2.4rem;
+    letter-spacing: -0.800000011920929px;
+}
+
+h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.5rem;
+    letter-spacing: -0.25px;
+}
+
+*.fontBg {
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.5rem;
+    letter-spacing: -0.25px;
+}
+.fontBgBold {
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.5rem;
+    letter-spacing: -0.25px;
+}
+
+.fontXBg {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 2rem;
+    letter-spacing: -0.3125px;
+}
+
+.fontSm {
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 1.8rem;
+    letter-spacing: -0.2291666716337204px;
+}
+
+/* Colors */
+
+:root {
+    --primary-color: #7C5DFA;
+    --primary-hovered-color: #9277FF;
+    --secondary-color: #EC5757;
+    --secondary-hovered-color: #FF9797;
+    --hash-color: #7E88C3;
+    --navbar-color: #373B53;
+
+    --success-color: #33D69F;
+
+    --warning-color: #FF8F00;
+
+    --danger-color: #EC5757;
+    --dagner-background-color-20: #EC575720;
+
+    --icons-color: #7E88C3;
+}
+
+.lightTheme {
+    --background-color: #F8F8FB;
+    --grand-total-background-color: #373B53;
+
+    --primary-text-color: #0C0E16;
+    --secondary-text-color: #FFFFFF;
+    --ternary-text-color: #7E88C3;  /* form labels; Due data on summary banner; themeToggler icon*/
+    --quartary-text-color:  #858BB2; /*Name on summary banner*/
+    
+    --banner-background-color: #FFFFFF;
+    --banner-text-color: #0C0E16;
+
+    --success-background-color: #F3FDFA;
+    --warning-background-color: #FFF1F1;
+    --dark-color: #373B53;
+    --dark-background-color: #373B5320;
+
+    --add-item-button-background-color: #F9FAFE;
+    --add-item-button-text-color: #7E88C3;
+    --add-item-button-hover-background-color: #DFE3FA;
+    --add-item-button-hover-text-color: #7E88C3;
+
+    --edit-button-background-color: #F9FAFE;
+    --edit-button-hover-background-coLor: #DFE3FA;
+    --edit-button-text-color: #7E88C3;
+    --edit-button-hover-text-color: #7E88C3;
+
+    --save-draft-button-background-color: #373B53;
+    --save-draft-button-text-color: #888EB0;
+    --save-draft-button-hover-background-color: #0C0E16;
+    --save-draft-button-hover-text-color: #888EB0;
+    
+    --bill-table-background-color: #F9FAFE;
+    --bill-table-text-color: #7E88C3;
+
+    --input-outline-default-color: #DFE3FA;
+    --input-outline-ative-color: #7C5DFA;
+}
+.darkTheme {
+    --background-color: #141625;
+    --grand-total-background-color: #0C0E16;
+
+    --primary-text-color: #FFFFFF;
+    --secondary-text-color: #FFFFFF;
+    --ternary-text-color: #DFE3FA;  /* form labels; Due data on summary banner; themeToggler icon */
+    --quartary-text-color:  #FFFFFF;
+
+    --banner-background-color: #1E2139;
+    --banner-text-color: #FFFFFF;
+
+    --success-background-color: #33D69F20;
+    --warning-background-color: #FF8F0020;
+    --dark-color: #DFE3FA;
+    --dark-background-color: #DFE3FA20;
+
+    --add-item-button-background-color: #252945;
+    --add-item-button-text-color: #DFE3FA;
+    --add-item-button-hover-background-color: #DFE3FA;
+    --add-item-button-hover-text-color: #7E88C3;
+
+    --edit-button-background-color: #252945;
+    --edit-button-hover-background-color: #DFE3FA;
+    --edit-button-text-color: #DFE3FA;
+    --edit-button-hover-text-color: #7E88C3;
+
+    --save-draft-button-background-color: #373B53;
+    --save-draft-button-text-color: #DFE3FA;
+    --save-draft-button-hover-background-color: #252945;
+    --save-draft-button-hover-text-color: #DFE3FA;
+
+    --bill-table-background-color: #252945;
+    --bill-table-text-color: #888EB0;
+
+    --input-outline-default-color: #252945;
+    --input-outline-ative-color: #252945;
+}
+
+
+/* Buttons */
+
+button {
+    height: 4.8rem;
+    border-radius: 2.4rem;
+    border: none;
+    padding: 0 2.4rem;
+    color: var(--secondary-text-color);
+    font-family: Spartan;
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.5rem;
+    letter-spacing: -0.25px;
+    cursor:pointer;
+}
+
+button:disabled {
+    background-color: #999999;
+}
+button:disabled:hover {
+    background-color: #999999;
+}
+.btnPrimary {
+    background-color: var(--primary-color);
+}
+.btnPrimary:hover {
+    background-color: var(--primary-hovered-color);
+}
+
+.btnSecondary {
+    background-color: var(--secondary-color);
+}
+.btnSecondary:hover {
+    background-color: var(--secondary-hovered-color);
+}
+
+.btnTernary {
+    background-color: var(--edit-button-background-color);
+    color: var(--edit-button-text-color)
+}
+.btnTernary:hover {
+    background-color: var(--edit-button-hover-background-color);
+    color: var(--edit-button-hover-text-color);
+}
+
+.saveDraftButton {
+    background-color: var(--save-draft-button-background-color);
+    color: var(--save-draft-button-text-color)
+}
+.saveDraftButton:hover {
+    background-color: var(--save-draft-button-hover-background-color);
+    color: var(--save-draft-button-hover-text-color);
+}
+
+.addItemButton {
+    background-color: var(--add-item-button-background-color);
+    color: var(--add-item-button-text-color)
+}
+.addItemButton:hover {
+    background-color: var(--add-item-button-hover-background-color);
+    color: var(--add-item-button-hover-text-color);
+}
+
+/* Form Elements */
+
+/* Date.disabled: opacity: 0.5 */
+
+/* Date Picker */
+
+.calendar {
+    width: 100%;
+    max-width: 24rem;
+}
+
+
+    
+/* 
+
+.react-datepicker-wrapper {
+    width: 100%;
+    max-width: 24rem;
+    display: flex;
+    align-items: center;
+    outline: none;
+    border:none;
+    box-shadow: none;
+}
+*/
+.react-datepicker__input-container {
+    display: flex !important;
+    align-items: center;
+    background-color: var(--banner-background-color);
+    border-radius: 8px;
+}
+.react-datepicker__input-container:after {
+    transform: translateX(-1.6rem);
+    position: absolute;
+    right: 0;
+    font-family: "Material Icons";
+    font-size: 1.6rem;
+    content: "\e935";
+    width: 1.6rem;
+    height: 1.6rem;
+    color: var(--icons-color);
+} 
+
+.datepicker-input {
+    height: 4.8rem;
+    width: 100%;
+
+    border: inset 1px #252945;
+    border-radius: 0.8rem;
+
+    padding-left: 2rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.5rem;
+    letter-spacing: -0.25px;
+
+    cursor: pointer;
+
+    background-color: var(--banner-background-color);
+    color: var(--banner-text-color);
+}
+
+.datepicker-input:focus {
+    border: inset 1px var(--input-outline-ative-color) !important;
+    outline:none;
+}
+
+.datepicker-input:disabled {
+    opacity: 0.5;
+}
+
+.react-datepicker-popper, 
+.react-datepicker-popper > *, 
+.react-datepicker,
+.react-datepicker__month-container {
+    width: 100%;
+    max-width: 24rem;
+}
+.react-datepicker__triangle {
+    display: none;
+}
+.react-datepicker__navigation {
+    top: 15px !important;
+}
+
+.react-datepicker {
+    border-radius: 0.8rem !important;
+    height: 24rem !important;
+    align-items: space-between !important;
+    padding: 0 1.6rem !important;
+    border: none !important;
+    box-shadow: 0px 10px 20px rgba(72, 84, 159, 0.25);
+    background-color: var(--banner-background-color) !important;
+    color: var(--banner-text-color) !important;
+}
+
+.react-datepicker__month-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    /* padding: 0 1.8rem; */
+}
+
+.react-datepicker__month {
+height: 80%;
+max-height: 14rem;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+}
+
+.react-datepicker__header {
+    background-color: unset !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border:none !important;
+    color: var(--banner-text-color) !important;
+}
+.react-datepicker__current-month, .react-datepicker__day {
+    color: var(--banner-text-color) !important;
+}
+
+.react-datepicker__navigation-icon::before {
+    border-color: var(--primary-color) !important;
+}
+
+.react-datepicker__current-month {
+    font-size: 1.5rem !important;
+}
+.react-datepicker__day-name {
+    display: none !important;
+}
+.react-datepicker__day {
+    width: calc(100% / 7) !important;
+    margin: 0 !important;
+    font-size: 1.5rem;
+    text-align: center;
+    height: 1.5rem;
+    font-weight: 700;
+}
+
+.react-datepicker__day:hover {
+    background-color: unset !important;
+} 
+
+.react-datepicker__day--selected {
+    background-color: unset !important;
+    color: var(--primary-color) !important;
+}
+
+.react-datepicker__day--outside-month {
+    opacity: 0.2;
+}
+
+/* General */
+
+a {
+    text-decoration: none;
+}
+
+.dFlex {
+    display: flex;
+}
+.grow5 {
+    flex-grow: 0.5
+}
+.spaceBetween {
+    justify-content: space-between;
+}
+
+.mr-08 {
+    margin-right: 0.8rem;
+}
+.mr-4 {
+    margin-right: 4rem;
+}
+.mr-7 {
+    margin-right: clamp(3.5rem, 5vw, 7rem)
+}
+
+
+/* Media Bigger than Tablet */
+@media screen and (min-width: 800px) {
+    .App {
+        flex-direction: row;
+    }
+    nav {
+        width: 10.3rem;
+        height: 100vh;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: 0 2rem 2rem 0;
+    }
+    .navGroup {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 11.7rem;
+        align-items: center;
+        margin-bottom: 2.4rem;
+        margin-right: 0;
+    }
+    .navbarDivider {
+        width: 11.7rem;
+        height: 1px;
+        margin-bottom: 2.4rem;
+        
+    }
+}
+
+/* Media Bigger than Moblie */
+
+@media screen and (min-width: 650px) {
+    .summaryBanner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        max-width: 75rem;
+        height: 7.2rem;
+        padding: 0 2.4rem 0 3.2rem;
+    }
+    .summaryBanner > * {
+        flex-basis: 0;
+        flex: 1 1 0px;
+    }    
+    .id {
+        margin-right: 1rem;
+    }
+    .dueDate {
+        margin-right: clamp(1.5rem, 4.5vw, 3.5rem);
+    }
+    .totalCost {
+        margin-right: clamp(2.4rem, 4.8vw, 4rem);
+        text-align: right;
+    }
+    .summaryBanner .infoBadge {
+        margin-right: 4.8rem;
+    }
+    .arrowRightSummaryBanner {
+        display: block;
+        position: absolute;
+        right: 32px;
+    } 
+    .billHeader {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .senderAddress {
+        text-align: right;
+        margin-top: unset;
+    }
+}
+
+/* ReactLoader */
+
+.reactLoading {
+    position: absolute;
+    top: 2.4rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
