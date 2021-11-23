@@ -8,8 +8,8 @@ function App() {
 
   return (
       <div className="App lightTheme">  
-        <Nav />
         <Router basename="/">
+          <Nav />
           <Routes basename="/">
             <Route path="/" element={<SummaryList/>} />
             <Route path="/invoice/:id" element={<Bill />} />

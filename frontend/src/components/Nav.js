@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import avatar from "../image-avatar.jpg"
+import {Link} from "react-router-dom"
 
 export default function Nav() {
     const [theme, setTheme] = useState("darkTheme")
     return (
         <nav>
+            <Link to={"/"}>
             <svg className="logo" width="103" height="103" viewBox="0 0 103 103" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M0 0H83C94.0457 0 103 8.9543 103 20V83C103 94.0457 94.0457 103 83 103H0V0Z" fill="#7C5DFA"/>
             <mask id="mask0_0_8741" style={{maskType:"alpha"}} maskUnits="userSpaceOnUse" x="0" y="0" width="103" height="103">
@@ -15,7 +17,7 @@ export default function Nav() {
             </g>
             <path fillRule="evenodd" clipRule="evenodd" d="M42.6942 33.2923L52 52L61.3058 33.2923C67.6645 36.6408 72 43.3141 72 51C72 62.0457 63.0457 71 52 71C40.9543 71 32 62.0457 32 51C32 43.3141 36.3355 36.6408 42.6942 33.2923Z" fill="white"/>
             </svg>
-            
+            </Link>
             <div className="navGroup">
                 <button // tema se rešava putem redux-a
                     onClick={() => setTheme(() => {
