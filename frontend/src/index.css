@@ -163,6 +163,9 @@ nav {
 .hashTag {
     color: var(--hash-color);
 }
+.hash {
+    color:var(--primary-text-color);
+}
 .dueDate {
     color: var(--ternary-text-color);
 }
@@ -408,6 +411,7 @@ h4 {
     font-weight: 700;
     line-height: 1.5rem;
     letter-spacing: -0.25px;
+    color:var(--primary-text-color);
 }
 
 .fontXBg {
@@ -415,6 +419,7 @@ h4 {
     font-weight: 700;
     line-height: 2rem;
     letter-spacing: -0.3125px;
+    color: var(--primary-text-color);
 }
 
 .fontSm {
