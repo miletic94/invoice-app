@@ -187,11 +187,23 @@ nav {
     border-radius: 8px;
     box-shadow: 0px 10px 10px -10px rgba(72, 84, 159, 0.100397);
 }
+.billContainers.transparent {
+    position:relative;
+    background-color: transparent;
+    box-shadow: none;
+}
+.bill .arrowLeft {
+    position:absolute;
+    left: 0;
+}
 .billStatus {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
+}
+.billStatus > span {
+    color: var(--quartary-text-color);
 }
 .bill .infoBadge {
     max-width: 10.3rem;

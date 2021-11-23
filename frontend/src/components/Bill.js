@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useDateString } from "../hooks/useDateString";
 import ErrorMessage from "./ErrorMessage/ErrorMessage";
 import ReactLoading from "react-loading";
+import {Link} from "react-router-dom"
 
 export default function Bill() {
   const params = useParams();
@@ -33,6 +34,15 @@ export default function Bill() {
         <ErrorMessage message={error} />
       ) : (
         <>
+          <Link  to={"/"}>
+            <div className="billContainers transparent fontBgBold spaceBetween">
+              <svg className="arrowLeft" width="7" height="10" xmlns="http://www.w3.org/2000/svg"><path d="M6.342.886L2.114 5.114l4.228 4.228" stroke="#9277FF" stroke-width="2" fill="none" fill-rule="evenodd"/></svg>
+              <span>
+                Go back
+              </span>
+            </div>
+            
+          </Link>
           <div className="dFlex spaceBetween billContainers">
             <div className="billStatus">
               <span>Status</span>
