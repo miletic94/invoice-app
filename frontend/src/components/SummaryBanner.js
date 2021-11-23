@@ -1,12 +1,9 @@
 import React from 'react'
 import InfoBadge from './InfoBadge/InfoBadge'
+import { useDateString } from '../hooks/useDateString'
 
 export default function SummaryBanner(props) {
-    const handleDateString = (dateString) => {
-        const options = {day:"numeric", month:"short", year:"numeric"}
-        const date = new Date(dateString)
-        return date.toLocaleDateString("en-GB", options)
-    }
+    const dateString = useDateString(props.paymentDue)
     return (
     
         <div className="summaryBannerWrapper">
@@ -17,7 +14,7 @@ export default function SummaryBanner(props) {
                 </h4>
                 <div className="dueDate  fontBg">
                     <span>Due: </span>
-                    <span>{handleDateString(props.paymentDue)}</span>
+                    <span>{dateString}</span>
                 </div>
                 <div className="clientName fontBg">
                     {props.clientName}
