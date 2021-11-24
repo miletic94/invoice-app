@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { getInvoicesList } from "../redux/actions/invoicesListActions";
 import ReactLoading from "react-loading";
 import ErrorMessage from "./ErrorMessage/ErrorMessage.js";
-import { Link } from "react-router-dom";
 import Filter from "./Filter/Filter";
 
 export default function SummarList() {
@@ -12,7 +11,7 @@ export default function SummarList() {
   useEffect(() => {
     dispatch(getInvoicesList());
   }, [dispatch]);
-  const { loading, invoicesList, error } = useSelector(
+  const { loading, filteredInvoicesList, error } = useSelector(
     (state) => state.invoices
   );
   return (
@@ -25,7 +24,7 @@ export default function SummarList() {
         />
       ) : error ? (
         <ErrorMessage message={error} />
-      ) : invoicesList.length === 0 ? (
+      ) : filteredInvoicesList.length === 0 ? (
         <img
           className="empty"
           src="./assets/illustration-empty.svg"
@@ -34,8 +33,7 @@ export default function SummarList() {
       ) : (
         <div>
           <Filter />
-
-          {invoicesList.map((item) => {
+          {filteredInvoicesList.map((item) => {
             return (
               <SummaryBanner
                 id={item.id}

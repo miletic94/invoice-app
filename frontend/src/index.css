@@ -109,7 +109,6 @@ nav {
     display: grid;
     padding: clamp(2rem, 2.5vw, 4.8rem);
     grid-template-columns: auto;
-    align-items: center;
 }
 
 /* SummaryBanner */
@@ -873,6 +872,9 @@ a {
     transform: translateX(-50%);
 }
 /* Filter */
+.filter .title {
+    color: var(--primary-text-color);
+}
 .filterSwitch {
     position: relative;
     display: flex;

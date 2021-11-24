@@ -15,6 +15,7 @@ const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 const store = createStore(rootReducer, {invoices: {
     loading: false,
     invoicesList: [],
+    filteredInvoicesList: [],
     error: null
 }}, composeEnhancer(applyMiddleware(thunk)))
 

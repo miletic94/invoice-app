@@ -1,8 +1,15 @@
 import * as actions from "../consts/invoicesListConsts"
 
+const filterInvoices = (invoices, filters) => {
+    let temp = []
+    filters.map(filter => temp.push(...invoices.filter(invoice => invoice.status === filter)))
+    return temp
+}
+
 export default function invoicesListReducer(state={
     loading: false,
     invoicesList: [],
+    filteredInvoicesList: [],
     errror: null
 }, action) {
     switch(action.type) {
@@ -16,13 +23,21 @@ export default function invoicesListReducer(state={
                 ...state,
                 loading:false,
                 invoicesList: action.payload.data,
-                test: "test"
+                filteredInvoicesList: action.payload.data
             }
         case actions.INVOICES_LIST_FAIL:
             return {
                 ...state,
                 loading: false,
                 error: action.payload.error
+            }
+        case actions.FILTER_INVOICES_LIST:
+            return {
+                ...state,    
+                filteredInvoicesList: 
+                action.payload.filters.length === 0 ?
+                state.invoicesList:
+                filterInvoices(state.invoicesList, action.payload.filters)
             }
         default:
             return state

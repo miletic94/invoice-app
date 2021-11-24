@@ -18,3 +18,10 @@ export const getInvoicesList = () => async dispatch => {
         })
     }
 }
+
+export const filterInvoicesList = (filters) => {
+    return {
+        type: actions.FILTER_INVOICES_LIST,
+        payload: {filters}
+    }
+}
