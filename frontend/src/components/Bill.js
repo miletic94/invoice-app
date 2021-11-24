@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useDateString } from "../hooks/useDateString";
 import ErrorMessage from "./ErrorMessage/ErrorMessage";
 import ReactLoading from "react-loading";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 
 export default function Bill() {
   const params = useParams();
@@ -34,14 +34,24 @@ export default function Bill() {
         <ErrorMessage message={error} />
       ) : (
         <>
-          <Link  to={"/"}>
+          <Link to={"/"}>
             <div className="billContainers transparent fontBgBold spaceBetween">
-              <svg className="arrowLeft" width="7" height="10" xmlns="http://www.w3.org/2000/svg"><path d="M6.342.886L2.114 5.114l4.228 4.228" stroke="#9277FF" stroke-width="2" fill="none" fill-rule="evenodd"/></svg>
-              <span>
-                Go back
-              </span>
+              <svg
+                className="arrowLeft"
+                width="7"
+                height="10"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M6.342.886L2.114 5.114l4.228 4.228"
+                  stroke="#9277FF"
+                  stroke-width="2"
+                  fill="none"
+                  fill-rule="evenodd"
+                />
+              </svg>
+              <span>Go back</span>
             </div>
-            
           </Link>
           <div className="dFlex spaceBetween billContainers">
             <div className="billStatus">
@@ -51,10 +61,13 @@ export default function Bill() {
             <div className="billControls">
               <button className="btnTernary">Edit</button>
               <button className="btnSecondary">Delete</button>
-              <button className="btnPrimary"
+              <button
+                className="btnPrimary"
                 disabled={details.status === "paid"}
                 onClick={() => console.log("object")}
-              >Mark as Paid</button>
+              >
+                Mark as Paid
+              </button>
             </div>
           </div>
 
@@ -132,32 +145,37 @@ export default function Bill() {
             </div>
             <table className="billTable mobile">
               <tbody>
-                {
-                details.items &&
-                details.items.map((item, index) => {
+                {details.items &&
+                  details.items.map((item, index) => {
                     return (
-                    <tr key={index}>
-                    <td>
-                      <div className="itemName fontBgBold">{item.name}</div>
-                      <div className="fontBgBold qtyTimesPrice">
-                        <span className="qty">{item.quantity}</span>
-                        <span>x </span>
-                        <span className="currency">£ </span>
-                        <span className="amount">{item.price}</span>
-                      </div>
-                    </td>
-                    <td className="subtotal fontBgBold">
-                      <span className="currency">£</span>
-                      <span className="amount">{item.total}</span>
-                    </td>
-                  </tr>
-                )
-                })}
+                      <tr key={index}>
+                        <td>
+                          <div className="itemName fontBgBold">{item.name}</div>
+                          <div className="fontBgBold qtyTimesPrice">
+                            <span className="qty">{item.quantity}</span>
+                            <span>x </span>
+                            <span className="currency">£ </span>
+                            <span className="amount">
+                              {item.price && item.price.toFixed(2)}
+                            </span>
+                          </div>
+                        </td>
+                        <td className="subtotal fontBgBold">
+                          <span className="currency">£</span>
+                          <span className="amount">
+                            {item.total && item.total.toFixed(2)}
+                          </span>
+                        </td>
+                      </tr>
+                    );
+                  })}
                 <tr className="grandTotal fontSm">
                   <td>Amount Due</td>
                   <td className="price">
                     <span className="currency">£ </span>
-                    <span className="amount">{details.total}</span>
+                    <span className="amount">
+                      {details.total && details.total.toFixed(2)}
+                    </span>
                   </td>
                 </tr>
               </tbody>
@@ -183,11 +201,11 @@ export default function Bill() {
                           </td>
                           <td className="priceColumn fontBgBold">
                             <span>£ </span>
-                            <span>{item.price}</span>
+                            <span>{item.price && item.price.toFixed(2)}</span>
                           </td>
                           <td className="totalColumn fontBgBold">
                             <span>£</span>
-                            <span>{item.total}</span>
+                            <span>{item.total && item.total.toFixed(2)}</span>
                           </td>
                         </tr>
                       );
@@ -197,7 +215,9 @@ export default function Bill() {
                   <td colSpan="2 fontSm">Amount Due</td>
                   <td colSpan="2" className="price">
                     <span className="currency">£ </span>
-                    <span className="amount">{details.total}</span>
+                    <span className="amount">
+                      {details.total && details.total.toFixed(2)}
+                    </span>
                   </td>
                 </tr>
               </tbody>
