@@ -5,7 +5,7 @@ import React from 'react'
 import Label from "./Label"
 import {useDispatch} from "react-redux"
 import { filterInvoicesList } from "../../redux/actions/invoicesListActions"
-import { useSelector } from "react-redux"
+import FilterDetails from "./FilterDetails"
 
 export default function Filter() {
     const [displayCheckboxMenu, setDisplayCheckboxMenu] = useState(false)
@@ -25,47 +25,19 @@ export default function Filter() {
             )
         })
     }
-    const {filteredInvoicesList} = useSelector(state => state.invoices)
 
     useEffect(() => {
         dispatch(filterInvoicesList(filters))
     }, [dispatch, filters])
 
-    const isMediaMobile = () => window.matchMedia("(max-width:650px)").matches
-
-    const isPlural = (object) => {
-        return object.length > 1
-    }
-    const totalInvoicesString = () => {
-        return `
-            ${!isMediaMobile() ? `There ${isPlural(filteredInvoicesList) ? "are" : "is"}` : ""}
-            
-            ${filteredInvoicesList.length}
-            ${isMediaMobile ? "total" : ""}
-            ${isPlural(filteredInvoicesList) ? "invoices." : "invoice."}
-        `
-    }
-    const groupedInvoicesString = () => {
-        return filters.map((filter, index) => {
-            const filterGroupedItems = filteredInvoicesList.filter(item => item.status === filter)
-            return (`
-                ${(index === 0 && !isMediaMobile()) ? `There ${isPlural(filterGroupedItems) ? 'are' : 'is'}` : ""}
-                ${filterGroupedItems.length}
-                ${filter}
-                ${isPlural(filterGroupedItems) ? "invoices" : "invoice"}
-                ${index < filters.length - 1 ? ", and" : ""}
-                `)
-            })
-        }                
+       
     
     return (
         <div className="filter">
             <div className="filterHeader">
                 <div>
                     <h1 className="title">Invoices</h1>
-                    <p className="filterDescription">
-                        {filters.length === 0 ? totalInvoicesString() : groupedInvoicesString()}
-                    </p>
+                    <FilterDetails filters={filters} />
                 </div>
                 <div className="filterSwitch fontBg" onClick={toggleCheckboxMenu}>
                     Filter by Status
