@@ -30,22 +30,41 @@ export default function Filter() {
     useEffect(() => {
         dispatch(filterInvoicesList(filters))
     }, [dispatch, filters])
+
+    const isMediaMobile = () => window.matchMedia("(max-width:650px)").matches
+
+    const isPlural = (object) => {
+        return object.length > 1
+    }
+    const totalInvoicesString = () => {
+        return `
+            ${!isMediaMobile() ? `There ${isPlural(filteredInvoicesList) ? "are" : "is"}` : ""}
+            
+            ${filteredInvoicesList.length}
+            ${isMediaMobile ? "total" : ""}
+            ${isPlural(filteredInvoicesList) ? "invoices." : "invoice."}
+        `
+    }
+    const groupedInvoicesString = () => {
+        return filters.map((filter, index) => {
+            const filterGroupedItems = filteredInvoicesList.filter(item => item.status === filter)
+            return (`
+                ${(index === 0 && !isMediaMobile()) ? `There ${isPlural(filterGroupedItems) ? 'are' : 'is'}` : ""}
+                ${filterGroupedItems.length}
+                ${filter}
+                ${isPlural(filterGroupedItems) ? "invoices" : "invoice"}
+                ${index < filters.length - 1 ? ", and" : ""}
+                `)
+            })
+        }                
+    
     return (
         <div className="filter">
             <div className="filterHeader">
                 <div>
                     <h1 className="title">Invoices</h1>
-                    <p>There {filteredInvoicesList.length > 1 ? "are " : "is "}
-                    {filters.length === 0 ? `${filteredInvoicesList.length} total`:
-                    filters.map((filter, index) => {
-                        return `
-                            ${filteredInvoicesList.filter(item => item.status === filter).length}
-                            ${filter}
-                             invoices ${index < filters.length - 1 ? ", and" : ""}
-                            `
-                    })
-                    }
-                    {filters.length === 0 ? filteredInvoicesList.length > 1 ? " invoices." : "invoice" : ""}
+                    <p className="filterDescription">
+                        {filters.length === 0 ? totalInvoicesString() : groupedInvoicesString()}
                     </p>
                 </div>
                 <div className="filterSwitch fontBg" onClick={toggleCheckboxMenu}>
@@ -73,6 +92,5 @@ export default function Filter() {
                 </div>
             </div>
         </div>
-        
     )
 }

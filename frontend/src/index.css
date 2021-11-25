@@ -894,7 +894,7 @@ a {
 .filter .title {
     color: var(--primary-text-color);
 }
-.filter .title + p {
+.filterDescription {
     color: var(--save-draft-button-text-color);
 }
 .filterSwitch {
