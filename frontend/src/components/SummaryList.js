@@ -38,6 +38,7 @@ export default function SummarList() {
     {filteredInvoicesList.map((item) => {
       return (
         <SummaryBanner
+          key={item.id}
           id={item.id}
           paymentDue={item.paymentDue}
           clientName={item.clientName}
