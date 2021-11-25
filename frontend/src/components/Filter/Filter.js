@@ -32,31 +32,28 @@ export default function Filter() {
     }, [dispatch, filters])
     return (
         <div className="filter">
-            <div>
-                <h1 className="title">Invoices</h1>
-                <p>There {filteredInvoicesList.length > 1 ? "are " : "is "} 
-                {filters.length === 0 ? `${filteredInvoicesList.length} total`: 
-                filters.map((filter, index) => {
-                    return `
-                        ${filteredInvoicesList.filter(item => item.status === filter).length}
-                        ${filter}
-                         invoices ${index < filters.length - 1 ? ", and" : ""}
-                        `
-                })
-                } 
-                {filters.length === 0 ? filteredInvoicesList.length > 1 ? " invoices." : "invoice" : ""} 
-                
-                
-                </p>
+            <div className="filterHeader">
+                <div>
+                    <h1 className="title">Invoices</h1>
+                    <p>There {filteredInvoicesList.length > 1 ? "are " : "is "}
+                    {filters.length === 0 ? `${filteredInvoicesList.length} total`:
+                    filters.map((filter, index) => {
+                        return `
+                            ${filteredInvoicesList.filter(item => item.status === filter).length}
+                            ${filter}
+                             invoices ${index < filters.length - 1 ? ", and" : ""}
+                            `
+                    })
+                    }
+                    {filters.length === 0 ? filteredInvoicesList.length > 1 ? " invoices." : "invoice" : ""}
+                    </p>
+                </div>
                 <div className="filterSwitch fontBg" onClick={toggleCheckboxMenu}>
                     Filter by Status
                     <span>
-                        <svg className={`arrowDown${displayCheckboxMenu && " rotate180"}`} width="11" height="7" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4.228 4.228L9.456 1" stroke="#7C5DFA" stroke-width="2" fill="none" fill-rule="evenodd"/></svg>
+                        <svg className={`arrowDown${displayCheckboxMenu ? " rotate180" : ""}`} width="11" height="7" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4.228 4.228L9.456 1" stroke="#7C5DFA" stroke-width="2" fill="none" fill-rule="evenodd"/></svg>
                     </span>
-                </div>
-            </div>
-           
-            <FormGroup className={`checkboxMenu${displayCheckboxMenu && " dNone"}`}>
+                    <FormGroup className={`checkboxMenu${displayCheckboxMenu && " dNone"}`}>
                 <FormControlLabel
                     control={<Checkbox sx={checkboxStyle} value="draft" onChange={handleCheckedToggle}/>}
                     label={<Label className="fontBgBold" text="Draft"/>}
@@ -73,6 +70,9 @@ export default function Filter() {
                     style={toggleDisplayCheckbox}
                 />
             </FormGroup>
+                </div>
+            </div>
         </div>
+        
     )
 }

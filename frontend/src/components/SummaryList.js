@@ -31,20 +31,23 @@ export default function SummarList() {
           alt="empty summary"
         />
       ) : (
-        <div>
-          <Filter />
-          {filteredInvoicesList.map((item) => {
-            return (
-              <SummaryBanner
-                id={item.id}
-                paymentDue={item.paymentDue}
-                clientName={item.clientName}
-                total={item.total}
-                status={item.status}
-              />
-            );
-          })}
-        </div>
+<div>
+  <Filter />
+  
+  <div className="summaryList">
+    {filteredInvoicesList.map((item) => {
+      return (
+        <SummaryBanner
+          id={item.id}
+          paymentDue={item.paymentDue}
+          clientName={item.clientName}
+          total={item.total}
+          status={item.status}
+        />
+      );
+    })}
+  </div>
+</div>
       )}
     </div>
   );

@@ -382,10 +382,18 @@ html, body {
 }
 
 h1 {
-    font-size: 3.2rem;
+    font-size: 2rem;;
     font-weight: 700;
-    line-height: 3.6rem;
-    letter-spacing: -1px;
+    line-height: 2.2rem;
+    letter-spacing: -0.625px;
+}
+
+@media screen and (min-width: 650px) {
+    h1 {
+        font-size: 3.2rem;
+        line-height: 3.6rem;
+        letter-spacing: -1px;
+    }
 }
 
 h2 {
@@ -771,6 +779,7 @@ a {
 .dFlex {
     display: flex;
 }
+
 .grow5 {
     flex-grow: 0.5
 }
@@ -872,13 +881,26 @@ a {
     transform: translateX(-50%);
 }
 /* Filter */
+.filter {
+    max-width: 75rem;
+    margin:auto;    
+}
+.filterHeader {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 60rem;
+}
 .filter .title {
     color: var(--primary-text-color);
+}
+.filter .title + p {
+    color: var(--save-draft-button-text-color);
 }
 .filterSwitch {
     position: relative;
     display: flex;
-    justify-content: space-around;
+    flex-grow: 1;
     align-items: center;
     height: 4.8rem;
     width: 100%;
@@ -889,6 +911,8 @@ a {
 .checkboxMenu {
     position: absolute;
     z-index: 1;
+    right: 0;
+    top: 4.8rem;
     width: 100%;
     max-width: 19.2rem;
     border-radius: 0.8rem;
@@ -897,8 +921,13 @@ a {
     color: var(--primary-text-color);
     background-color: var(--edit-button-background-color);
 }
+.arrowDown {
+    position: absolute;
+    right: 0;
+    transform: translateY(-50%);
+}
 .arrowDown.rotate180 {
-    transform: rotate(180deg);
+    transform: rotate(180deg) translateY(50%);
 }
 
 .dNone {
