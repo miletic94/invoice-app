@@ -409,16 +409,16 @@ nav {
     .billTable tr:last-child {
         padding: 1.2rem 0 2.4rem 0;
     }
-    .billTable th, .qtyColumn, .priceColumn {
+    .billTable th, td.qtyColumn, td.priceColumn {
         color: var(--ternary-text-color);
     }
-    .itemNameColumn {
+    td.itemNameColumn {
         text-align: left;
     }
-    .qtyColumn {
+    td.qtyColumn {
         text-align: center;
     }
-    .priceColumn, .totalColumn {
+    td.priceColumn, td.totalColumn {
         text-align: right;
     }
 
@@ -522,6 +522,7 @@ h4 {
 
 .lightTheme {
     --background-color: #F8F8FB;
+    --form-background-color: #FFFFFF;
     --grand-total-background-color: #373B53;
 
     --primary-text-color: #0C0E16;
@@ -562,6 +563,7 @@ h4 {
 }
 .darkTheme {
     --background-color: #141625;
+    --form-background-color: #141625;
     --grand-total-background-color: #0C0E16;
 
     --primary-text-color: #FFFFFF;
@@ -1022,11 +1024,36 @@ a {
     background-color: #00000050;
     z-index: 1;
 }
+
+.items {
+    display: grid;
+    gap: 1.8rem;
+}
+.items > *:not(button) {
+    display: grid;
+    align-items: center;
+    margin-top: 1.6rem;
+    gap: 1.6rem;
+    grid-template-columns: 21.4rem 4.6rem 10rem 4.5rem 1fr;
+}
+.items input {
+    height: 4.8rem;
+}
+.items input.itemNameColumn, .items input.priceColumn {
+    padding-left: 2rem;
+}
+.items input.qtyColumn {
+    text-align: center;
+}
+.items .delete {
+    text-align: right;
+}
 @media screen and (min-width: 800px) {
     .formModal {
         height: 100vh;
         width: calc(100vw - 10.3rem);
     }
+    
 }
 .formWrapper {
     position: fixed;
@@ -1041,7 +1068,7 @@ a {
     z-index: 2;
     overflow-y: scroll;
     color: var(--primary-text-color);
-    background-color: var(--background-color);
+    background-color: var(--form-background-color);
 }
 .editFormWrapper .btnGroup {
     justify-content: flex-end;
