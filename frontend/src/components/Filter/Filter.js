@@ -34,34 +34,36 @@ export default function Filter() {
     
     return (
         <div className="filter">
-            <div className="filterHeader">
-                <div>
-                    <h1 className="title">Invoices</h1>
-                    <FilterDetails filters={filters} />
-                </div>
-                <div className="filterSwitch fontBg" onClick={toggleCheckboxMenu}>
-                    Filter by Status
-                    <span>
-                        <svg className={`arrowDown${displayCheckboxMenu ? " rotate180" : ""}`} width="11" height="7" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4.228 4.228L9.456 1" stroke="#7C5DFA" strokeWidth="2" fill="none" fillRule="evenodd"/></svg>
-                    </span>
-                    <FormGroup className={`checkboxMenu${displayCheckboxMenu && " dNone"}`}>
-                <FormControlLabel
-                    control={<Checkbox sx={checkboxStyle} value="draft" onChange={handleCheckedToggle}/>}
-                    label={<Label className="fontBgBold" text="Draft"/>}
-                    style={toggleDisplayCheckbox}
-                />
-                <FormControlLabel
-                    control={<Checkbox sx={checkboxStyle} value="pending" onChange={handleCheckedToggle}/>}
-                    label={<Label className="fontBgBold" text="Pending"/>}
-                    style={toggleDisplayCheckbox}
-                />
-                <FormControlLabel
-                    control={<Checkbox sx={checkboxStyle} value="paid" onChange={handleCheckedToggle}/>}
-                    label={<Label className="fontBgBold" text="Paid"/>}
-                    style={toggleDisplayCheckbox}
-                />
-            </FormGroup>
-                </div>
+
+                <div className="filterHeader">
+                    <div className="title">
+                        <h1 className="title">Invoices</h1>
+                        <FilterDetails filters={filters} />
+                    </div>
+                    <div className="filterSwitch fontBg" onClick={toggleCheckboxMenu}>
+                        <span className="filterSwitchText desktop">Filter by Status</span>
+                        <span className="filterSwitchText mobile">Filter</span>
+                        <span>
+                            <svg className={`arrowDown${displayCheckboxMenu ? " rotate180" : ""}`} width="11" height="7" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4.228 4.228L9.456 1" stroke="#7C5DFA" strokeWidth="2" fill="none" fillRule="evenodd"/></svg>
+                        </span>
+                        <FormGroup className={`checkboxMenu${displayCheckboxMenu && " dNone"}`}>
+                    <FormControlLabel
+                        control={<Checkbox sx={checkboxStyle} value="draft" onChange={handleCheckedToggle}/>}
+                        label={<Label className="fontBgBold" text="Draft"/>}
+                        style={toggleDisplayCheckbox}
+                    />
+                    <FormControlLabel
+                        control={<Checkbox sx={checkboxStyle} value="pending" onChange={handleCheckedToggle}/>}
+                        label={<Label className="fontBgBold" text="Pending"/>}
+                        style={toggleDisplayCheckbox}
+                    />
+                    <FormControlLabel
+                        control={<Checkbox sx={checkboxStyle} value="paid" onChange={handleCheckedToggle}/>}
+                        label={<Label className="fontBgBold" text="Paid"/>}
+                        style={toggleDisplayCheckbox}
+                    />
+                </FormGroup>
+                    </div>
             </div>
         </div>
     )

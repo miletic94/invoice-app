@@ -107,10 +107,45 @@ nav {
 .summaryList {
     width: 100%;
     display: grid;
-    padding: clamp(2rem, 2.5vw, 4.8rem);
+    padding: clamp(1rem, 2.5vw, 4.8rem);
     grid-template-columns: auto;
 }
+.summaryListHeader {
+    display:flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 75rem;
+    padding: 0 clamp(2rem, 2.5vw, 4.8rem)
+}
 
+.desktop {
+    display:none;
+}
+@media screen and (min-width:650px) {
+    .desktop {
+        display: inline-block;
+    }
+}
+@media screen and (min-width: 950px) {
+    .summaryListHeader {
+        padding: 0;
+    }
+}
+.addInvoiceButton {
+    display: flex;
+    align-items: center;
+    padding: 0 clamp(1rem, 3vw, 2.4rem)
+}
+.circle.white {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 0.8rem;
+    background-color: white;
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 50%;
+}
 /* SummaryBanner */
 .summaryBannerWrapper {
     display: grid;
@@ -556,7 +591,7 @@ button {
     height: 4.8rem;
     border-radius: 2.4rem;
     border: none;
-    padding: 0 2.4rem;
+    padding: 0 clamp(1rem 2vw, 2.4rem);
     color: var(--secondary-text-color);
     font-family: Spartan;
     font-size: 1.2rem;
@@ -775,11 +810,6 @@ justify-content: space-between;
 a {
     text-decoration: none;
 }
-
-.dFlex {
-    display: flex;
-}
-
 .grow5 {
     flex-grow: 0.5
 }
@@ -882,14 +912,20 @@ a {
 }
 /* Filter */
 .filter {
+    flex-grow: 1;
     max-width: 75rem;
-    margin:auto;    
 }
 .filterHeader {
     display: flex;
     justify-content: space-between;
     width: 100%;
     max-width: 60rem;
+}
+.filterHeader .title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 .filter .title {
     color: var(--primary-text-color);
@@ -903,10 +939,25 @@ a {
     flex-grow: 1;
     align-items: center;
     height: 4.8rem;
-    width: 100%;
     max-width: 19.2rem;
+    margin-left: clamp(2rem, 7vw, 8rem);
+    margin-right: clamp(1rem, 4vw, 3.2rem);
     color: var(--primary-text-color);
     cursor: pointer;
+}
+.filterSwitchText.mobile {
+    display: inline-block;
+}
+.filterSwitchText.desktop {
+    display: none;
+}
+@media screen and (min-width: 650px) {
+    .filterSwitchText.mobile {
+        display: none;
+    }
+    .filterSwitchText.desktop {
+        display: inline-block;
+    }
 }
 .checkboxMenu {
     position: absolute;
